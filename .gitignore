@@ -1,0 +1,7 @@
+venv/*
+tour.egg-info/*
+instance/*
+tour/__pycache__/*
+tour/static/img/*
+tour/static/uploads/*
+.idea/*

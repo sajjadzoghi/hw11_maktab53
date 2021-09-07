@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} - Tour</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tour.css') }}">
+
+</head>
+<body>
+<div class="container-fluid" id="navbar-container">
+    <div class="modal fade" id="create-modal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form method="POST" action="{{ url_for('index.create_post') }}" enctype="multipart/form-data"
+                          id="tour-form">
+                        <div class="form-group">
+                            <label for="image"></label>
+                            <input type="file" class="form-control" name="image" id="image" placeholder="Add Image"
+                                   value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="title"></label>
+                            <input type="text" class="form-control" name="title" id="title" placeholder="Tour Title"
+                                   value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="description"></label>
+                            <textarea class="form-control" name="description" id="description"
+                                      placeholder="Description"></textarea>
+                        </div>
+                        <div class="form-group d-inline-flex">
+                            <label for="start_date"></label>
+                            <input type="text" class="form-control" name="start_date" id="start_date"
+                                   placeholder="Start Date" value=""
+                                   onfocus="(this.type='date')" onblur="(this.type='text')">
+                            <label for="end_date"></label>
+                            <input type="text" class="form-control ml-3" name="end_date" id="end_date"
+                                   placeholder="End Date" value=""
+                                   onfocus="(this.type='date')" onblur="(this.type='text')">
+                        </div>
+                        <div class="form-group">
+                            <label for="price"></label>
+                            <input type="text" class="form-control" name="price" id="price" placeholder="Price"
+                                   value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="distance"></label>
+                            <input type="text" class="form-control" name="distance" id="distance"
+                                   placeholder="Distance" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="travel_by"></label>
+                            <select class="form-control" name="travel_by" id="travel_by" placeholder="Travel By">
+                                <option value="plane">plane</option>
+                                <option value="train">train</option>
+                                <option value="bus">bus</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="add-btn">Create</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-white shadow">
+        <a class="navbar-brand text-white rounded-circle " href="#">TourGuider.com</a>
+        <button class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto topnav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Places</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Careers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto topnav">
+                <li class="nav-item">
+                    <button class="nav-link btn text-white" id="create-btn" type="button"
+                            data-toggle="modal"
+                            data-target="#create-modal">Create a Tour
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<div class="container-fluid" style="margin-top: 6rem">
+    <div class="row">
+        <div class="card col rounded" id="card1">
+            <img class="card-img-top rounded" src="{{ url_for('static', filename='img/main.png') }}" alt="Tour image">
+            <div class="card-img-overlay">
+                <h1 class="card-title text-center text-white mt-5">TRAVEL TO EXPLORE</h1>
+                <p class="card-text mr-auto ml-auto w-25 text-center text-white">Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit. Delectus doloribus eos necessitatibus nisi repudiandae vel.</p>
+                <form action="index.html" method="get" class="tm-search-form tm-section-pad-2">
+                    <div class="form-row tm-search-form-row">
+                        <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+                            <label for="inputCity">Choose Your Destination</label>
+                            <input name="destination" type="text" class="form-control" id="inputCity"
+                                   placeholder="Type your destination...">
+                        </div>
+                        <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+                            <label for="inputCheckIn">Check In Date</label>
+                            <input name="check-in" type="text" onfocus="(this.type='date')" onblur="(this.type='text')"
+                                   class="form-control" id="inputCheckIn"
+                                   placeholder="Check In">
+                        </div>
+                        <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+                            <label for="inputCheckOut">Check Out Date</label>
+                            <input name="check-out" type="text" onfocus="(this.type='date')" onblur="(this.type='text')"
+                                   class="form-control" id="inputCheckOut"
+                                   placeholder="Check Out">
+                        </div>
+                        <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+                            <label for="search-btn"></label>
+                            <button type="button" class="btn btn-primary tm-btn tm-btn-search"
+                                    id="search-btn">Explore Now
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card-deck" id="row2">
+            <div class="card bg-white">
+                <div class="card-body text-center">
+                    <div class="card-title">
+                        <i class="fa fa-fw fa-percent" style="font-size:30px"></i><br>
+                        <h5>Get Best Prices</h5>
+                    </div>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci,
+                        dolorem.</p>
+                </div>
+            </div>
+            <div class="card bg-white">
+                <div class="card-body text-center">
+                    <i class="fa fa-fw fa-heart" style="font-size:30px"></i><br>
+                    <h5>Covid-19 Safe</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, odit.</p>
+                </div>
+            </div>
+            <div class="card bg-white">
+                <div class="card-body text-center">
+                    <i class="fa fa-fw fa-credit-card" style="font-size:30px"></i><br>
+                    <h5>Flexible Payment</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, minus!</p>
+                </div>
+            </div>
+            <div class="card bg-white">
+                <div class="card-body text-center">
+                    <i class="fa fa-fw fa-location-arrow" style="font-size:30px"></i><br>
+                    <h5>Find The Best Near You</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam,
+                        repellendus?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center" id="recommend-title"><h4 style="font-weight: 900">Recommended
+        Destination</h4></div>
+    <div class="row justify-content-center" id="row3" style="background-color: aliceblue">
+        {#        {% for tour in tours %}#}
+        {% for i in range(tour_counts) %}
+            <div class="card col-4">
+                <img class="card-img-top" src="{{ url_for('static', filename='uploads/' + tours[i]['image']) }}"
+                     alt="Card image">
+                <div class="card-body">
+                    <h4 class="card-title">{{ tours[i]["title"] }}</h4>
+                    <p class="card-text">{{ tours[i]["description"] }}</p>
+                    <div class="row">
+                        <i class="fa fa-fw fa-cutlery"></i><br>
+                        <i class="fa fa-fw fa-hotel"></i><br>
+                        <i class="fa fa-fw fa-{{ tours[i]['travel_by'] }}"></i>
+                        <h5 style="margin-left: auto">{{ tours[i]["price"] }}</h5>
+                    </div>
+                    <div class="row" style="font-size: 15px">
+                        <p class="distance">{{ tours[i]["distance"] }}</p>
+                        <p style="margin-left: auto; margin-top: 0.5rem" id="days-count">
+                            Approx {{ days_counts[i] }} night trip</p>
+                    </div>
+                    <p style="display: none" id="start-dt">{{ tours[i]["start_date"] }}</p>
+                    <p style="display: none" id="end-dt">{{ tours[i]["end_date"] }}</p>
+                    <a href="#" class="stretched-link"></a>
+                </div>
+            </div>
+        {% endfor %}
+        {#        {% endfor %}#}
+    </div>
+</div>
+
+<script>
+
+    $('#tour-form').submit(function (e) {
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+
+        var form = $(this);
+        var url = form.attr('action');
+        var formData = new FormData(this);
+
+        $.ajax({
+            type: "post",
+            url: url,
+            data: formData, // serializes the form's elements.
+            success: function (data) {
+                console.log(data)
+                $('#row3').append(`<div class="card col-4">
+            <img class="card-img-top" src="/static/uploads/${data['image']}" alt="Card image">
+            <div class="card-body">
+                <h4 class="card-title">${data['title']}</h4>
+                <p class="card-text">${data['description']}</p>
+                <div class="row">
+                    <i class="fa fa-fw fa-cutlery"></i><br>
+                    <i class="fa fa-fw fa-hotel"></i><br>
+                    <i class="fa fa-fw fa-${data['travel_by']}"></i>
+                    <h5 style="margin-left: auto">${data['price']}</h5>
+                </div>
+                <div class="row" style="font-size: 15px">
+                    <p class="distance">${data['distance']}</p>
+                    <p style="margin-left: auto; margin-top: 0.5rem">Approx ${data['end_date']} night trip</p>
+                </div>
+                <a href="#" class="stretched-link"></a>
+            </div>
+        </div>`);
+                $('#tour-form').trigger('reset');
+            },
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+
+    });
+    $('#add-btn').click(function () {
+        $('#tour-form').submit();
+    })
+</script>
+{#<script>#}
+{#                        let start_dt = "{{ tour['start_date'] }}";#}
+{#                        let end_dt = "{{ tour['end_date'] }}";#}
+{#                        start_dt = new Date(start_dt);#}
+{#                        end_dt = new Date(end_dt);#}
+{#                        var Difference_In_Time = end_dt.getTime() - start_dt.getTime();#}
+{#                        var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);#}
+{#                        $('#days-count').html(`Approx night ${Difference_In_Days} trip`);#}
+{#                    </script>#}
+</body>
+</html>

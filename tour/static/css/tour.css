@@ -1,0 +1,144 @@
+body {
+    font-family: "Gill Sans MT";
+    background-color: whitesmoke;
+}
+
+.navbar-brand {
+    font-family: "Century Gothic";
+    border: 10px solid #c90000;
+    font-size: 1.5rem;
+    background-color: #c90000;
+    font-weight: 900;
+}
+
+#create-btn {
+    border-left: 50px solid green;
+    border-right: 50px solid green;
+    background-color: green;
+}
+
+#card1 {
+    padding: 0;
+    border: 20px solid whitesmoke;
+}
+
+label {
+    font-weight: 700;
+}
+
+.tm-search-form {
+    background-color: rgba(255, 255, 255, 0.75);
+    width: 100%;
+    max-width: 900px;
+    padding-top: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
+    border-radius: 1%;
+}
+
+.tm-form-group {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tm-form-group-pad {
+    padding-left: 3px;
+}
+
+
+.tm-form-group-3 {
+    width: 21%;
+}
+
+#card1 .form-control {
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 0;
+    border: none;
+    height: 1.2rem;
+}
+
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: none;
+}
+
+.tm-btn-search {
+    margin-left: 3rem;
+    margin-top: 9px;
+    border: none;
+    height: 2.5rem;
+}
+
+.tm-btn-search:hover,
+.tm-btn-search:active,
+.tm-btn-search:focus {
+    background: #c66995;
+}
+
+#row2 .card {
+    margin: 20px 40px 40px 40px;
+    border: none;
+    box-shadow: 1px 5px 10px 0px #888888;
+}
+
+#recommend-title {
+    background-color: aliceblue;
+    border: none;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+
+#row3 .card {
+    background-color: aliceblue;
+    border: none;
+    margin-top: 30px;
+}
+
+#row3 img {
+    border-radius: 2%;
+}
+
+#row2 i {
+    color: cornflowerblue;
+}
+
+#row3 i {
+    color: aliceblue;
+    background-color: #001838;
+    width: 2rem;
+    padding-top: 5px;
+    border: 2px #001838 solid;
+    border-radius: 100%;
+    margin-left: 0.5rem;
+}
+
+#row3 .distance {
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+
+.modal-body {
+    border-radius: 15%;
+    background-color: white;
+}
+
+.form-group #image {
+    height: 5rem;
+    width: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+.form-group #start_date,#end_date {
+    margin-top: 1rem;
+    width: 23.3rem;
+}
+
+.modal-body button {
+    width: 6rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 12rem;
+}
+
