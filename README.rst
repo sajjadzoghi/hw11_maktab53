@@ -1,4 +1,4 @@
-Flaskr
+TourGuider
 ======
 
 A simple Flask project for "guidance & adding tours".
